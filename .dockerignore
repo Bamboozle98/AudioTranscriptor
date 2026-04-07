@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.idea
+.venv
+venv
+env
+node_modules
+data/output
+storage/uploads
+storage/outputs

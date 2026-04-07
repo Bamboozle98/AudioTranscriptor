@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Initial repo commit" />
+    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Initial repo commit">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/BOH F&amp;P.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Coolers.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Features.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Lobby Line.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Merch.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Truck.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/extract_pdf_tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/normalize_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +34,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bamboozle98&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bamboozle98/AudioTranscriptor&quot;,
+    &quot;accountId&quot;: &quot;477d2abd-b7b8-4809-b715-0e09a19ad909&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -29,22 +55,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.build_menu_aliases.executor": "Run",
-    "Python.main_live.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/cbran/PycharmProjects/AudioTranscriptor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.build_menu_aliases.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extract_pdf_tables.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_live.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cbran/PycharmProjects/AudioTranscriptor/data/raw/inventory_list_pdfs&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\data\raw\inventory_list_pdfs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\data\raw" />
       <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\src\llm" />
       <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\src\speech" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_live">
+  <component name="RunManager" selected="Python.extract_pdf_tables">
     <configuration name="build_menu_aliases" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AudioTranscriptor" />
       <option name="ENV_FILES" value="" />
@@ -59,6 +90,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/build_menu_aliases.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract_pdf_tables" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AudioTranscriptor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/extract_pdf_tables.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -91,6 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.extract_pdf_tables" />
         <item itemvalue="Python.main_live" />
         <item itemvalue="Python.build_menu_aliases" />
       </list>
@@ -120,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772729757685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial repo commit">
+      <option name="closed" value="true" />
+      <created>1772729889006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772729889006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
