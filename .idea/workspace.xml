@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Initial repo commit">
-      <change afterPath="$PROJECT_DIR$/src/pipeline/service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pipeline/test.py" afterDir="false" />
+    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Conversion to Railway friendly repo">
+      <change afterPath="$PROJECT_DIR$/app/static/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/llm/ollama_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/llm/llm_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pipeline/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pipeline/main_live.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/main_live.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/speech/whisper_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/speech/whisper_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/paths.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,11 +204,20 @@
       <option name="project" value="LOCAL" />
       <updated>1775586710789</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Conversion to Railway friendly repo">
+      <option name="closed" value="true" />
+      <created>1775593030285</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775593030285</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial repo commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial repo commit" />
+    <MESSAGE value="Conversion to Railway friendly repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conversion to Railway friendly repo" />
   </component>
 </project>

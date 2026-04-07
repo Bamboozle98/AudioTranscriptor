@@ -2,17 +2,26 @@ from pathlib import Path
 import shutil
 import uuid
 
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 from src.pipeline.main_live import process_audio_file
-
 
 app = FastAPI(title="Dank Burrito Audio API")
 
 BASE_DIR = Path("/data") if Path("/data").exists() else Path(".")
 UPLOAD_DIR = BASE_DIR / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+templates = Jinja2Templates(directory="app/templates")
+
+
+@app.get("/")
+def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/health")
@@ -22,7 +31,7 @@ def health():
 
 @app.post("/api/process")
 async def process_audio(file: UploadFile = File(...)):
-    allowed = {".wav", ".mp3", ".m4a", ".mp4", ".webm"}
+    allowed = {".wav", ".mp3", ".m4a", ".mp4", ".webm", ".ogg"}
     suffix = Path(file.filename or "").suffix.lower()
 
     if suffix not in allowed:
