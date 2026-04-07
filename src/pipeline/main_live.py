@@ -1,6 +1,8 @@
-from src.audio.mic_capture import list_input_devices, record_until_enter
-from src.speech.whisper_client import whisper_summon, whisper_transcribe_audio
-from src.llm.ollama_client import ollama_summon, ollama_chat_json
+from pathlib import Path
+import uuid
+
+from src.speech.whisper_client import whisper_summon, whisper_transcribe
+from src.llm.llm_client import llm_summon, llm_chat_json
 from src.pipeline.item_matcher import ItemMatcher, load_measurable_items
 from src.pipeline.item_aliases import apply_aliases
 from src.pipeline.record_schema import (
@@ -11,9 +13,7 @@ from src.pipeline.record_schema import (
 )
 from src.utils.paths import ensure_output_dirs
 
-import uuid
-session_id = uuid.uuid4().hex[:10]  # short but unique per session
-print(f"Session ID: {session_id}")
+
 measurable = load_measurable_items()
 matcher = ItemMatcher(measurable, threshold=85)
 
@@ -22,89 +22,92 @@ def build_user_prompt(transcript: str) -> str:
     return f"Spoken text:\n<<<{transcript}>>>"
 
 
-def main():
-    # --- ensure output dirs ---
+def process_audio_file(
+    audio_path: str | Path,
+    save_csv: bool = True,
+    save_xlsx: bool = False,
+) -> dict:
+    audio_path = Path(audio_path)
+    session_id = uuid.uuid4().hex[:10]
+
     csv_dir, xlsx_dir = ensure_output_dirs()
     csv_path = csv_dir / "weigh_ins.csv"
     xlsx_path = xlsx_dir / "weigh_ins.xlsx"
 
     whisper = whisper_summon()
-    ollama_cfg = ollama_summon()
+    llm_cfg = llm_summon()
 
-    print("Live mode.")
-    print("Press ENTER to start recording an entry.")
-    print("Press ENTER again to stop.")
-    print("Type 'q' then ENTER at the prompt to quit.\n")
+    transcript, segments, info = whisper_transcribe(
+        whisper,
+        str(audio_path),
+        language=None,
+        vad_filter=True,
+    )
 
-    while True:
-        cmd = input("Ready (ENTER to start, 'q' to quit) > ").strip().lower()
-        if cmd == "q":
-            break
+    transcript = (transcript or "").strip()
+    if not transcript:
+        return {
+            "session_id": session_id,
+            "transcript": "",
+            "normalized_transcript": "",
+            "records": [],
+            "message": "No transcript detected.",
+        }
 
-        # Record user-controlled duration
-        audio = record_until_enter(samplerate=16000, device=None, channels=1)
+    transcript = apply_aliases(transcript)
 
-        if audio.size == 0:
-            print("No audio captured.\n")
-            continue
+    raw = llm_chat_json(
+        cfg=llm_cfg,
+        system=SYSTEM_RECORD_PARSER,
+        user=build_user_prompt(transcript),
+        temperature=0.0,
+    )
 
-        # Whisper
-        transcript, segments, info = whisper_transcribe_audio(
-            whisper,
-            audio,
-            language=None,
-            vad_filter=True,
-        )
+    if not isinstance(raw, list):
+        raise ValueError("Model did not return a JSON list.")
 
-        transcript = (transcript or "").strip()
-        if not transcript:
-            print("No transcript detected.\n")
-            continue
+    normalized = []
+    skipped = []
 
-        transcript = apply_aliases(transcript)
-        print(f"\nTranscript (normalized): {transcript}")
+    for r in raw:
+        try:
+            rec = validate_and_normalize_record(r, session_id=session_id)
 
-        print(f"\nTranscript: {transcript}")
+            corrected, score, changed = matcher.correct(rec["item"])
+            if corrected:
+                rec["item"] = corrected
+            else:
+                skipped.append({
+                    "record": r,
+                    "reason": f"Unmatched/empty item: {rec['item']}"
+                })
+                continue
 
-        # Ollama → list of records
-        raw = ollama_chat_json(
-            cfg=ollama_cfg,
-            system=SYSTEM_RECORD_PARSER,
-            user=build_user_prompt(transcript),
-            temperature=0.0,
-        )
+            normalized.append(rec)
 
-        if not isinstance(raw, list):
-            print("Model did not return a JSON list. Skipping.\n")
-            continue
+        except Exception as e:
+            skipped.append({
+                "record": r,
+                "reason": str(e),
+            })
 
-        normalized = []
-        for r in raw:
-            try:
-                rec = validate_and_normalize_record(r, session_id=session_id)
-
-                corrected, score, changed = matcher.correct(rec["item"])
-                if corrected:
-                    if changed:
-                        print(f"Item corrected: '{rec['item']}' -> '{corrected}' (score={score})")
-                    rec["item"] = corrected
-                else:
-                    print(f"Unmatched/empty item, skipped: {rec['item']}")
-                    continue
-
-                normalized.append(rec)
-
-            except Exception as e:
-                print(f"Skipped bad record {r} ({e})")
-
-        # Save BOTH
+    if save_csv and normalized:
         append_records_to_csv(str(csv_path), normalized)
+
+    if save_xlsx and normalized:
         append_records_to_xlsx(str(xlsx_path), normalized)
 
-        print(f"Saved {len(normalized)} record(s) to:")
-        print(f"  CSV : {csv_path}")
-        print(f"  XLSX: {xlsx_path}\n")
+    return {
+        "session_id": session_id,
+        "transcript": transcript,
+        "segments": segments,
+        "records": normalized,
+        "skipped": skipped,
+        "csv_path": str(csv_path) if save_csv else None,
+        "xlsx_path": str(xlsx_path) if save_xlsx else None,
+    }
 
 
 if __name__ == "__main__":
-    main()
+    result = process_audio_file("sample.wav")
+    print(result)

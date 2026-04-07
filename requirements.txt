@@ -5,3 +5,4 @@ pandas
 faster-whisper
 openpyxl
 rapidfuzz
+openai

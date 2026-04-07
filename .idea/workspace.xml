@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Initial repo commit">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/BOH F&amp;P.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Coolers.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Features.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Lobby Line.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Merch.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/inventory_list_pdfs/Truck.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/extract_pdf_tables.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/normalize_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pipeline/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pipeline/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/llm/ollama_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/llm/llm_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/main_live.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/main_live.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/speech/whisper_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/speech/whisper_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/paths.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +52,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.build_menu_aliases.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extract_pdf_tables.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_live.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cbran/PycharmProjects/AudioTranscriptor/data/raw/inventory_list_pdfs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.build_menu_aliases.executor": "Run",
+    "Python.extract_pdf_tables.executor": "Run",
+    "Python.main_live.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/cbran/PycharmProjects/AudioTranscriptor/data/raw/inventory_list_pdfs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\data\raw\inventory_list_pdfs" />
@@ -75,7 +73,7 @@
       <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\src\speech" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.extract_pdf_tables">
+  <component name="RunManager" selected="Python.test">
     <configuration name="build_menu_aliases" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AudioTranscriptor" />
       <option name="ENV_FILES" value="" />
@@ -142,8 +140,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AudioTranscriptor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pipeline" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pipeline/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.extract_pdf_tables" />
         <item itemvalue="Python.main_live" />
         <item itemvalue="Python.build_menu_aliases" />
@@ -182,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772729889006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial repo commit">
+      <option name="closed" value="true" />
+      <created>1775586710789</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775586710789</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

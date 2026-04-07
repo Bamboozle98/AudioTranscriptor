@@ -1,7 +1,7 @@
 import argparse
 
 from src.speech.whisper_client import whisper_summon, whisper_transcribe
-from src.llm.ollama_client import ollama_summon, ollama_chat_json
+from src.llm.llm_client import ollama_summon, ollama_chat_json
 from src.pipeline.record_schema import (
     SYSTEM_RECORD_PARSER,
     validate_and_normalize_record,

@@ -1,17 +1,14 @@
 from faster_whisper import WhisperModel
 import numpy as np
-
-
 import os
+from pathlib import Path
 
-# Put cache somewhere safe
-os.environ.setdefault("HF_HOME", r"C:\hf_cache")
-os.environ.setdefault("HUGGINGFACE_HUB_CACHE", r"C:\hf_cache\hub")
+CACHE_BASE = Path(os.getenv("HF_HOME", "/tmp/hf_cache"))
+CACHE_BASE.mkdir(parents=True, exist_ok=True)
 
-# Force HF Hub to not attempt symlinks (works with newer huggingface_hub)
+os.environ.setdefault("HF_HOME", str(CACHE_BASE))
+os.environ.setdefault("HUGGINGFACE_HUB_CACHE", str(CACHE_BASE / "hub"))
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS", "1")
-
-# Optional: hide the warning
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
 
