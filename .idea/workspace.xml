@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Jinja2" />
+    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Template Response updates">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,7 +226,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775597640072</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Jinja2 adjustments">
+      <option name="closed" value="true" />
+      <created>1775752917408</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775752917408</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Template Response updates">
+      <option name="closed" value="true" />
+      <created>1775753483794</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1775753483794</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -232,6 +250,8 @@
     <MESSAGE value="Conversion to Railway friendly repo" />
     <MESSAGE value="Updating app for mobile recording." />
     <MESSAGE value="Jinja2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jinja2" />
+    <MESSAGE value="Jinja2 adjustments" />
+    <MESSAGE value="Template Response updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Template Response updates" />
   </component>
 </project>

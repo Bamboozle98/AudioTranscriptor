@@ -29,6 +29,11 @@ def root(request: Request):
     )
 
 
+@app.get("/version")
+def version():
+    return {"version": "plain-html-root-v1"}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
