@@ -14,9 +14,10 @@ app = FastAPI(title="Dank Burrito Audio API")
 BASE_DIR = Path("/data") if Path("/data").exists() else Path(".")
 UPLOAD_DIR = BASE_DIR / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+APP_DIR = Path(__file__).resolve().parent
 
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="app/templates")
+app.mount("/static", StaticFiles(directory=str(APP_DIR / "static")), name="static")
+templates = Jinja2Templates(directory=str(APP_DIR / "templates"))
 
 
 @app.get("/")

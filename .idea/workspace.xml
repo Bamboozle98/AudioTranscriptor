@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Updating app for mobile recording." />
+    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Jinja2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,17 +41,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.build_menu_aliases.executor": "Run",
-    "Python.extract_pdf_tables.executor": "Run",
-    "Python.main_live.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/cbran/PycharmProjects/AudioTranscriptor/data/raw/inventory_list_pdfs"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.build_menu_aliases.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extract_pdf_tables.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_live.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cbran/PycharmProjects/AudioTranscriptor/data/raw/inventory_list_pdfs&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cbran\PycharmProjects\AudioTranscriptor\data\raw\inventory_list_pdfs" />
@@ -216,13 +216,22 @@
       <option name="project" value="LOCAL" />
       <updated>1775595590896</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Jinja2">
+      <option name="closed" value="true" />
+      <created>1775597640072</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775597640072</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial repo commit" />
     <MESSAGE value="Conversion to Railway friendly repo" />
     <MESSAGE value="Updating app for mobile recording." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating app for mobile recording." />
+    <MESSAGE value="Jinja2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jinja2" />
   </component>
 </project>
