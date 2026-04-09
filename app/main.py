@@ -22,7 +22,11 @@ templates = Jinja2Templates(directory=str(APP_DIR / "templates"))
 
 @app.get("/")
 def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={}
+    )
 
 
 @app.get("/health")
