@@ -13,9 +13,9 @@ os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
 
 def whisper_summon(
-    model_name: str = "large-v3",
-    device: str = "cuda",
-    compute_type: str = "float16",
+    model_name: str = os.getenv("WHISPER_MODEL", "tiny"),
+    device: str = os.getenv("WHISPER_DEVICE", "cpu"),
+    compute_type: str = os.getenv("WHISPER_COMPUTE_TYPE", "int8"),
 ):
     """
     Create and return a Faster-Whisper model instance.
