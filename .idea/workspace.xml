@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Template Response updates">
+    <list default="true" id="d172f215-ff9f-4d18-a296-53eb0e5cfce0" name="Changes" comment="Shrink Whisper for better processing.">
+      <change afterPath="$PROJECT_DIR$/src/pipeline/inventory_catalog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +243,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775753483794</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Testing Main file">
+      <option name="closed" value="true" />
+      <created>1775754335449</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1775754335449</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Shrink Whisper for better processing.">
+      <option name="closed" value="true" />
+      <created>1775754637251</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775754637251</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -252,6 +269,8 @@
     <MESSAGE value="Jinja2" />
     <MESSAGE value="Jinja2 adjustments" />
     <MESSAGE value="Template Response updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Template Response updates" />
+    <MESSAGE value="Testing Main file" />
+    <MESSAGE value="Shrink Whisper for better processing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Shrink Whisper for better processing." />
   </component>
 </project>

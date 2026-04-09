@@ -3,7 +3,8 @@ import uuid
 
 from src.speech.whisper_client import whisper_summon, whisper_transcribe
 from src.llm.llm_client import llm_summon, llm_chat_json
-from src.pipeline.item_matcher import ItemMatcher, load_measurable_items
+from src.pipeline.item_matcher import ItemMatcher
+from src.pipeline.inventory_catalog import load_inventory_catalog
 from src.pipeline.item_aliases import apply_aliases
 from src.pipeline.record_schema import (
     SYSTEM_RECORD_PARSER,
@@ -14,12 +15,29 @@ from src.pipeline.record_schema import (
 from src.utils.paths import ensure_output_dirs
 
 
-measurable = load_measurable_items()
-matcher = ItemMatcher(measurable, threshold=85)
+catalog = load_inventory_catalog()
+matcher = ItemMatcher(catalog, threshold=85)
 
 
 def build_user_prompt(transcript: str) -> str:
     return f"Spoken text:\n<<<{transcript}>>>"
+
+
+def build_user_prompt(transcript: str, valid_items: list[str]) -> str:
+    item_block = "\n".join(f"- {item}" for item in valid_items[:500])
+
+    return f"""
+Spoken text:
+<<<{transcript}>>>
+
+Valid inventory items:
+{item_block}
+
+Instructions:
+- Extract records only if the spoken item maps to one of the valid inventory items above.
+- Prefer the closest valid inventory item instead of repeating the raw transcript literally.
+- Do not invent item names outside the valid inventory list.
+"""
 
 
 def process_audio_file(
@@ -59,7 +77,7 @@ def process_audio_file(
     raw = llm_chat_json(
         cfg=llm_cfg,
         system=SYSTEM_RECORD_PARSER,
-        user=build_user_prompt(transcript),
+        user=build_user_prompt(transcript, catalog),
         temperature=0.0,
     )
 
